@@ -121,6 +121,7 @@ function seleccionDeClases() {
           break;
         }
       case 8:
+        sumaTotal();
         break;
     }
   }
@@ -160,8 +161,13 @@ function sumaTotal() {
   const total = carritoClases.reduce((acc, element) => {
     return acc + element.precio;
   }, 0);
-  console.log("Vas a abonar $" + total);
-  alert("Vas a abonar $" + total);
+  if (total === 0) {
+    console.log("Tienes el carrito vacio");
+    alert("No agregaste ninguna clase");
+  } else {
+    console.log("Vas a abonar $" + total);
+    alert("Vas a abonar $" + total);
+  }
 }
 
 // Creo una funcion que me retorna una variable con las clases obtenidas
