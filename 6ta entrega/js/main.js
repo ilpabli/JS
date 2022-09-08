@@ -78,85 +78,178 @@ clasesCross.forEach((element) => {
   cards.append(div);
 });
 
-// Creo mi variable para capturar los botones
-const btn = document.querySelectorAll(".btn");
-
-btn[0].addEventListener("click", () => {
-  existe = noDuplicados("Crossfit");
-  if (existe === true) {
-    console.log("Ya tenes agregada esta clase");
-  } else {
-    console.log("Agregaste Crossfit");
-    carritoClases.push(clasesCross[0]);
-    sumaTotal();
-  }
+// TEST
+// Creo mi variable para capturar las cardes y enviar el event al addcarrito
+cards.addEventListener("click", (e) => {
+  addCarrito(e);
 });
 
-btn[1].addEventListener("click", () => {
-  existe = noDuplicados("Funcional");
-  if (existe === true) {
-    console.log("Ya tenes agregada esta clase");
-  } else {
-    console.log("Agregaste Funcional");
-    carritoClases.push(clasesCross[1]);
-    sumaTotal();
-  }
-});
+const addCarrito = (e) => {
+  let input = e.target.id;
+  switch (input) {
+    case "btn1":
+      existe = noDuplicados("Crossfit");
+      if (existe === true) {
+        console.log("Ya tenes agregada esta clase");
+      } else {
+        console.log("Agregaste Crossfit");
+        carritoClases.push(clasesCross[0]);
+        sumaTotal();
+      }
+      e.stopPropagation;
+      break;
+    case "btn2":
+      existe = noDuplicados("Funcional");
+      if (existe === true) {
+        console.log("Ya tenes agregada esta clase");
+      } else {
+        console.log("Agregaste Funcional");
+        carritoClases.push(clasesCross[1]);
+        sumaTotal();
+      }
+      e.stopPropagation;
+      break;
+    case "btn3":
+      existe = noDuplicados("Remo y Bicicleta");
+      if (existe === true) {
+        console.log("Ya tenes agregada esta clase");
+      } else {
+        console.log("Agregaste Remo y Bicicleta");
+        carritoClases.push(clasesCross[2]);
+        sumaTotal();
+      }
+      e.stopPropagation;
+      break;
+    case "btn4":
+      existe = noDuplicados("Levantamiento Olimpico");
+      if (existe === true) {
+        console.log("Ya tenes agregada esta clase");
+      } else {
+        console.log("Agregaste Levantamiento Olimpico");
+        carritoClases.push(clasesCross[3]);
+        sumaTotal();
+      }
+      e.stopPropagation;
+      break;
+    case "btn5":
+      existe = noDuplicados("Mobility");
+      if (existe === true) {
+        console.log("Ya tenes agregada esta clase");
+      } else {
+        console.log("Agregaste Mobility");
+        carritoClases.push(clasesCross[4]);
+        sumaTotal();
+      }
+      e.stopPropagation;
+      break;
+    case "btn6":
+      existe = noDuplicados("Skills");
+      if (existe === true) {
+        console.log("Ya tenes agregada esta clase");
+      } else {
+        console.log("Agregaste Skills");
+        carritoClases.push(clasesCross[5]);
+        sumaTotal();
+      }
+      e.stopPropagation;
+      break;
+    case "btn7":
+      existe = noDuplicados("Gymnastics");
+      if (existe === true) {
+        console.log("Ya tenes agregada esta clase");
+      } else {
+        console.log("Agregaste Gymnastics");
+        carritoClases.push(clasesCross[6]);
+        sumaTotal();
+      }
+      e.stopPropagation;
+      break;
 
-btn[2].addEventListener("click", () => {
-  existe = noDuplicados("Remo y Bicicleta");
-  if (existe === true) {
-    console.log("Ya tenes agregada esta clase");
-  } else {
-    console.log("Agregaste Remo y Bicicleta");
-    carritoClases.push(clasesCross[2]);
-    sumaTotal();
+    default:
+      break;
   }
-});
 
-btn[3].addEventListener("click", () => {
-  existe = noDuplicados("Levantamiento Olimpico");
-  if (existe === true) {
-    console.log("Ya tenes agregada esta clase");
-  } else {
-    console.log("Agregaste Levantamiento Olimpico");
-    carritoClases.push(clasesCross[3]);
-    sumaTotal();
-  }
-});
+  e.stopPropagation();
+};
 
-btn[4].addEventListener("click", () => {
-  existe = noDuplicados("Mobility");
-  if (existe === true) {
-    console.log("Ya tenes agregada esta clase");
-  } else {
-    console.log("Agregaste Mobility");
-    carritoClases.push(clasesCross[4]);
-    sumaTotal();
-  }
-});
+// const btn = document.querySelectorAll(".btn");
 
-btn[5].addEventListener("click", () => {
-  existe = noDuplicados("Skills");
-  if (existe === true) {
-    console.log("Ya tenes agregada esta clase");
-  } else {
-    console.log("Agregaste Skills");
-    carritoClases.push(clasesCross[5]);
-    sumaTotal();
-  }
-});
+// btn[0].addEventListener("click", () => {
+//   existe = noDuplicados("Crossfit");
+//   if (existe === true) {
+//     console.log("Ya tenes agregada esta clase");
+//   } else {
+//     console.log("Agregaste Crossfit");
+//     carritoClases.push(clasesCross[0]);
+//     sumaTotal();
+//   }
+// });
 
-btn[6].addEventListener("click", () => {
-  existe = noDuplicados("Gymnastics");
-  if (existe === true) {
-    console.log("Ya tenes agregada esta clase");
-  } else {
-    console.log("Agregaste Gymnastics");
-    carritoClases.push(clasesCross[6]);
-    sumaTotal();
-  }
-});
+// btn[1].addEventListener("click", () => {
+//   existe = noDuplicados("Funcional");
+//   if (existe === true) {
+//     console.log("Ya tenes agregada esta clase");
+//   } else {
+//     console.log("Agregaste Funcional");
+//     carritoClases.push(clasesCross[1]);
+//     sumaTotal();
+//   }
+// });
+
+// btn[2].addEventListener("click", () => {
+//   existe = noDuplicados("Remo y Bicicleta");
+//   if (existe === true) {
+//     console.log("Ya tenes agregada esta clase");
+//   } else {
+//     console.log("Agregaste Remo y Bicicleta");
+//     carritoClases.push(clasesCross[2]);
+//     sumaTotal();
+//   }
+// });
+
+// btn[3].addEventListener("click", () => {
+//   existe = noDuplicados("Levantamiento Olimpico");
+//   if (existe === true) {
+//     console.log("Ya tenes agregada esta clase");
+//   } else {
+//     console.log("Agregaste Levantamiento Olimpico");
+//     carritoClases.push(clasesCross[3]);
+//     sumaTotal();
+//   }
+// });
+
+// btn[4].addEventListener("click", () => {
+//   existe = noDuplicados("Mobility");
+//   if (existe === true) {
+//     console.log("Ya tenes agregada esta clase");
+//   } else {
+//     console.log("Agregaste Mobility");
+//     carritoClases.push(clasesCross[4]);
+//     sumaTotal();
+//   }
+// });
+
+// btn[5].addEventListener("click", () => {
+//   existe = noDuplicados("Skills");
+//   if (existe === true) {
+//     console.log("Ya tenes agregada esta clase");
+//   } else {
+//     console.log("Agregaste Skills");
+//     carritoClases.push(clasesCross[5]);
+//     sumaTotal();
+//   }
+// });
+
+// btn[6].addEventListener("click", () => {
+//   existe = noDuplicados("Gymnastics");
+//   if (existe === true) {
+//     console.log("Ya tenes agregada esta clase");
+//   } else {
+//     console.log("Agregaste Gymnastics");
+//     carritoClases.push(clasesCross[6]);
+//     sumaTotal();
+//   }
+// });
 
 // Imprimo el carrito cuando tocan el boton
 btnCarrito.addEventListener("click", () => {
