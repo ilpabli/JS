@@ -223,7 +223,7 @@ carritoClases.forEach((element) => {
   let div = document.createElement("div");
   div.className = "col my-2";
   div.innerHTML = `
-  <div class="card" style="width: 320px;">
+  <div class="card" style="width: 300px;">
   <img src="./img/${element.img}" class="card-img-top" alt="ejercicio${element.nombre}">
   <div class="card-body">
     <p class="card-text fw-semibold">${element.nombre}<br>Los dias: ${element.dia}<br>Precio de la clase: $${element.precio}</p>
