@@ -26,8 +26,23 @@
       <h2 class="text-center">Selecciona la disciplina:</h2>
       <section id="cards" class="container-fluid row text-center"></section>
       <section class="container-fluid text-center my-5">
-        <button class="btn btn-success" id="btnCarrito">Ver Carrito</button>
-        <p id="clasesAdqui"></p>
+        <table class="table">
+          <thead>
+            <tr class="table-primary">
+              <th scope="col">Clase</th>
+              <th scope="col">Dias</th>
+              <th scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody id="clasesadquiridas"></tbody>
+          <tfoot>
+            <tr>
+              <th id="total" scope="row" colspan="3">
+                Aun no agregaste ninguna clase!
+              </th>
+            </tr>
+          </tfoot>
+        </table>
       </section>
       <section class="container-fluid text-center my-5">
         <p id="total"></p>

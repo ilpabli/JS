@@ -54,13 +54,12 @@ const clasesCross = [
 // Creo mi array carrito vacio
 const carritoClases = [];
 
-// Creo una variable para generar las cards
+// Creo una variable para capturar donde se imprimen las cards
 const cards = document.getElementById("cards");
 
-// Creo variable para imprimir el carrito y totales
-const printTotal = document.getElementById("total");
-const printClases = document.getElementById("clasesAdqui");
-const btnCarrito = document.getElementById("btnCarrito");
+// Creo una variable para capturar donde se imprimen las clases adquiridas y el total
+const clasesAdquiridas = document.getElementById("clasesadquiridas");
+const footerTotal = document.getElementById("total");
 
 // Genero las cards desde JS con un bucle
 clasesCross.forEach((element) => {
@@ -78,8 +77,8 @@ clasesCross.forEach((element) => {
   cards.append(div);
 });
 
-// TEST
-// Creo mi variable para capturar las cardes y enviar el event al addcarrito
+// escucho los click en las card y capturo el event, a partir de ahi filtro el target.id y puedo saber
+// el id del boton seleccionado
 cards.addEventListener("click", (e) => {
   addCarrito(e);
 });
@@ -95,6 +94,7 @@ const addCarrito = (e) => {
         console.log("Agregaste Crossfit");
         carritoClases.push(clasesCross[0]);
         sumaTotal();
+        printCarrito();
       }
       e.stopPropagation;
       break;
@@ -106,6 +106,7 @@ const addCarrito = (e) => {
         console.log("Agregaste Funcional");
         carritoClases.push(clasesCross[1]);
         sumaTotal();
+        printCarrito();
       }
       e.stopPropagation;
       break;
@@ -117,6 +118,7 @@ const addCarrito = (e) => {
         console.log("Agregaste Remo y Bicicleta");
         carritoClases.push(clasesCross[2]);
         sumaTotal();
+        printCarrito();
       }
       e.stopPropagation;
       break;
@@ -128,6 +130,7 @@ const addCarrito = (e) => {
         console.log("Agregaste Levantamiento Olimpico");
         carritoClases.push(clasesCross[3]);
         sumaTotal();
+        printCarrito();
       }
       e.stopPropagation;
       break;
@@ -139,6 +142,7 @@ const addCarrito = (e) => {
         console.log("Agregaste Mobility");
         carritoClases.push(clasesCross[4]);
         sumaTotal();
+        printCarrito();
       }
       e.stopPropagation;
       break;
@@ -150,6 +154,7 @@ const addCarrito = (e) => {
         console.log("Agregaste Skills");
         carritoClases.push(clasesCross[5]);
         sumaTotal();
+        printCarrito();
       }
       e.stopPropagation;
       break;
@@ -161,6 +166,7 @@ const addCarrito = (e) => {
         console.log("Agregaste Gymnastics");
         carritoClases.push(clasesCross[6]);
         sumaTotal();
+        printCarrito();
       }
       e.stopPropagation;
       break;
@@ -171,104 +177,6 @@ const addCarrito = (e) => {
 
   e.stopPropagation();
 };
-
-// const btn = document.querySelectorAll(".btn");
-
-// btn[0].addEventListener("click", () => {
-//   existe = noDuplicados("Crossfit");
-//   if (existe === true) {
-//     console.log("Ya tenes agregada esta clase");
-//   } else {
-//     console.log("Agregaste Crossfit");
-//     carritoClases.push(clasesCross[0]);
-//     sumaTotal();
-//   }
-// });
-
-// btn[1].addEventListener("click", () => {
-//   existe = noDuplicados("Funcional");
-//   if (existe === true) {
-//     console.log("Ya tenes agregada esta clase");
-//   } else {
-//     console.log("Agregaste Funcional");
-//     carritoClases.push(clasesCross[1]);
-//     sumaTotal();
-//   }
-// });
-
-// btn[2].addEventListener("click", () => {
-//   existe = noDuplicados("Remo y Bicicleta");
-//   if (existe === true) {
-//     console.log("Ya tenes agregada esta clase");
-//   } else {
-//     console.log("Agregaste Remo y Bicicleta");
-//     carritoClases.push(clasesCross[2]);
-//     sumaTotal();
-//   }
-// });
-
-// btn[3].addEventListener("click", () => {
-//   existe = noDuplicados("Levantamiento Olimpico");
-//   if (existe === true) {
-//     console.log("Ya tenes agregada esta clase");
-//   } else {
-//     console.log("Agregaste Levantamiento Olimpico");
-//     carritoClases.push(clasesCross[3]);
-//     sumaTotal();
-//   }
-// });
-
-// btn[4].addEventListener("click", () => {
-//   existe = noDuplicados("Mobility");
-//   if (existe === true) {
-//     console.log("Ya tenes agregada esta clase");
-//   } else {
-//     console.log("Agregaste Mobility");
-//     carritoClases.push(clasesCross[4]);
-//     sumaTotal();
-//   }
-// });
-
-// btn[5].addEventListener("click", () => {
-//   existe = noDuplicados("Skills");
-//   if (existe === true) {
-//     console.log("Ya tenes agregada esta clase");
-//   } else {
-//     console.log("Agregaste Skills");
-//     carritoClases.push(clasesCross[5]);
-//     sumaTotal();
-//   }
-// });
-
-// btn[6].addEventListener("click", () => {
-//   existe = noDuplicados("Gymnastics");
-//   if (existe === true) {
-//     console.log("Ya tenes agregada esta clase");
-//   } else {
-//     console.log("Agregaste Gymnastics");
-//     carritoClases.push(clasesCross[6]);
-//     sumaTotal();
-//   }
-// });
-
-// Imprimo el carrito cuando tocan el boton
-btnCarrito.addEventListener("click", () => {
-  if (carritoClases.length === 0) {
-    printClases.innerHTML = `No seleccionaste nada aun!`;
-    printClases.className = "fw-bolder rounded my-3";
-  } else {
-    printClases.innerHTML = `Seleccionaste las siguientes clases: ${clasesAdqui()}`;
-    printClases.className = "fw-bolder rounded my-3";
-  }
-});
-
-// Creo una funcion con un mapa que me devuelve las clases contratadas
-function clasesAdqui() {
-  const adqui = carritoClases.map((element) => {
-    return element.nombre;
-  });
-  return adqui;
-}
 
 // verifico si la clase esta en el array y no dejo agregar mas de 1
 function noDuplicados(input) {
@@ -284,6 +192,16 @@ function sumaTotal() {
     return acc + element.precio;
   }, 0);
   console.log("Vas a abonar $" + total);
-  printTotal.innerHTML = `Vas abonar el total de: $${total}`;
-  printTotal.className = "fw-bolder total p-3 rounded";
+  footerTotal.innerText = "Vas abonar: $" + total;
+  footerTotal.className = "table-success";
 }
+
+// imprimo el carrito y en cada item agregado limpio el anterior resultado
+const printCarrito = () => {
+  clasesAdquiridas.innerHTML = "";
+  carritoClases.forEach((element) => {
+    let tr = document.createElement("tr");
+    tr.innerHTML = `<td>${element.nombre}</td><td>${element.dia}</td><td>${element.precio}</td>`;
+    clasesAdquiridas.append(tr);
+  });
+};
