@@ -1,61 +1,6 @@
-// Creo mi array de objetos que usare como DB
-const clasesCross = [
-  {
-    id: 1,
-    nombre: "Crossfit",
-    precio: 600,
-    dia: "Lunes a Viernes",
-    img: "crossfit.jpg",
-  },
-  {
-    id: 2,
-    nombre: "Funcional",
-    precio: 600,
-    dia: "Lunes a Viernes",
-    img: "funcional.jpg",
-  },
-  {
-    id: 3,
-    nombre: "Remo y Bicicleta",
-    precio: 500,
-    dia: "Miercoles",
-    img: "remoybici.jpg",
-  },
-  {
-    id: 4,
-    nombre: "Levantamiento Olimpico",
-    precio: 700,
-    dia: "Jueves",
-    img: "oly.jpg",
-  },
-  {
-    id: 5,
-    nombre: "Mobility",
-    precio: 500,
-    dia: "Lunes",
-    img: "mobility.jpg",
-  },
-  {
-    id: 6,
-    nombre: "Skills",
-    precio: 1000,
-    dia: "Martes y Jueves",
-    img: "skills.jpg",
-  },
-  {
-    id: 7,
-    nombre: "Gymnastics",
-    precio: 600,
-    dia: "Lunes a Viernes",
-    img: "gymnastics.jpg",
-  },
-];
-
-// Creo mi array carrito vacio
+// Creo mi array carrito vacio y mi array de clases
 const carritoClases = [];
-
-// Creo una variable para capturar donde se imprimen las cards
-const cards = document.getElementById("cards");
+const clasesCross = [];
 
 // Creo variables para capturar los input del usuario via teclado e imprimo en el session los datos de nombre
 const inputNombre = document.getElementById("inputnombre");
@@ -84,22 +29,41 @@ inputBtn.addEventListener("click", (e) => {
 const clasesAdquiridas = document.getElementById("clasesadquiridas");
 const footerTotal = document.getElementById("total");
 
-// Genero las cards desde JS con un bucle y hago un destructuring
-clasesCross.forEach((element) => {
-  let { id, nombre, precio, dia, img } = element;
-  let div = document.createElement("div");
-  div.className = "col my-2";
-  div.innerHTML = `
-  <div class="card" style="width: 300px;">
-  <img src="./img/${img}" class="card-img-top" alt="ejercicio${nombre}">
-  <div class="card-body">
-  <h4>${nombre}</h4>
-    <p class="card-text fw-semibold">Los dias: ${dia}<br>Precio de la clase: $${precio}</p>
-    <button class="btn btn-dark" id=btn${id}>Agregar</button>
-  </div>
-</div>`;
-  cards.append(div);
+// Importo mis datos desde mi DB y ejectura la funcion que imprime las cards
+const dataFetch = async () => {
+  const res = await fetch("./js/data.json");
+  const data = await res.json();
+  printCards(data);
+};
+
+// Agrego un evento que ejecuta la funcion cuando el HTML se cargo exitosamente
+document.addEventListener("DOMContentLoaded", (e) => {
+  dataFetch();
 });
+
+// Creo una variable para capturar donde se imprimen las cards
+const cards = document.getElementById("cards");
+
+// Genero una funcion que recibe por parametro la data traida de mi DB y genera las cards automaticamente.
+const printCards = (data) => {
+  data.forEach((element) => {
+    let { id, nombre, precio, dia, img } = element;
+    let div = document.createElement("div");
+    div.className = "col my-2";
+    div.innerHTML = `
+    <div class="card" style="width: 300px;">
+    <img src="./img/${img}" class="card-img-top" alt="ejercicio${nombre}">
+    <div class="card-body">
+    <h4>${nombre}</h4>
+      <p class="card-text fw-semibold">Los dias: ${dia}<br>Precio de la clase: $${precio}</p>
+      <button class="btn btn-dark" id=btn${id}>Agregar</button>
+    </div>
+  </div>`;
+    cards.append(div);
+    //Pusheo a mi array los elementos importados desde la DB
+    clasesCross.push(element);
+  });
+};
 
 // Escucho los click en las Card y capturo el Event, a partir de ahi filtro el target.id y puedo saber
 // el id del boton seleccionado
