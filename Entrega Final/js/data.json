@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "nombre": "Crossfit",
+    "precio": 600,
+    "dia": "Lunes a Viernes",
+    "img": "crossfit.jpg"
+  },
+  {
+    "id": 2,
+    "nombre": "Funcional",
+    "precio": 600,
+    "dia": "Lunes a Viernes",
+    "img": "funcional.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Remo y Bicicleta",
+    "precio": 500,
+    "dia": "Miercoles",
+    "img": "remoybici.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Levantamiento Olimpico",
+    "precio": 700,
+    "dia": "Jueves",
+    "img": "oly.jpg"
+  },
+  {
+    "id": 5,
+    "nombre": "Mobility",
+    "precio": 500,
+    "dia": "Lunes",
+    "img": "mobility.jpg"
+  },
+  {
+    "id": 6,
+    "nombre": "Skills",
+    "precio": 1000,
+    "dia": "Martes y Jueves",
+    "img": "skills.jpg"
+  },
+  {
+    "id": 7,
+    "nombre": "Gymnastics",
+    "precio": 600,
+    "dia": "Lunes a Viernes",
+    "img": "gymnastics.jpg"
+  }
+]
